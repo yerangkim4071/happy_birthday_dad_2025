@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Dad!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e6f7ff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 700px;
+      text-align: left;
+      z-index: 2;
+    }
+
+    .card h1 {
+      color: #ff6699;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+      white-space: pre-line;
+    }
+
+    /* 풍선 - 고정 */
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 30px;
+      background: #666;
+      transform: translateX(-50%);
+    }
+
+    /* 모달 스타일 */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      animation: popUp 0.6s ease;
+    }
+
+    .modal-content h2 {
+      margin: 0 0 20px;
+      color: #ff6699;
+    }
+
+    .modal-content button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6699;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .modal-content button:hover {
+      background: #e05588;
+    }
+
+    @keyframes popUp {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎂 아빠 생일 축하해요! 🎉</h1>
+    <p>
+올해도 아빠 생일을 맞아서 편지를 쓰네.<br>
+
+이제 김민헌도 나도 대학생이 됐어. 지금까지 우리를 잘 키워준 거 항상 고맙게 생각하고 있어. 
+아빠는 잘 모를 수도 있지만, 어릴 때부터 아빠한테서는 늘 뭔가 지적인 느낌이 있었고, 
+그게 나한텐 멋있게 보였어. 책 읽고 얘기해주고, 커서는 투자 방법 같은 것도 알려줬잖아. 
+그런 것들이 다 기억에 남아 있어. 이제 나도 여러 가지를 배우고 부딪히면서, 
+그 모습에 조금은 닮아가고 있다고 느껴. 결국 많은 게 아빠 덕분이야. 
+그래서 단순히 내 절반의 유전자를 준 사람이라서가 아니라, 
+세상을 살아가는 데 필요한 이성적인 시선을 처음 알려준 사람으로서 
+아빠를 존경하고 사랑해.<br>
+
+최근에 깨달은 건데, 나는 사람을 꽤 많이 좋아하는 편인 것 같아. 
+그래서 마음을 표현하려고 애쓰고 있어. 아빠한테도 더 많이 표현하고 싶고, 
+솔직해지고 싶어. 사실 아빠가 어떻게 생각할지는 잘 모르겠지만, 
+내겐 아빠가 정말 소중하고 사랑하는 사람이라서, 웃으면서 지내길 바라는 마음이 커.<br>
+
+아빠는 엄마처럼 살갑게 표현하는 편은 아니니까, 
+가끔은 아빠가 우리가 얼마나 생각하는지 잘 못 느낄 때도 있을 것 같아. 
+그렇지만 엄마도 나도, 할머니도, 김민헌도 다 아빠를 많이 생각해. 
+그건 꼭 알아줬으면 좋겠어. 아빠는 우리한테 사랑받고 있어.<br>
+
+아빠가 살아온 모습이 지금의 아빠를 만든 거고, 그게 존경스러워. 
+또 나를 이해해주고 사랑해준 것도 고맙게 생각해. 
+그러니 아빠가 생일을 기억 못해도 괜찮아. 우리가 항상 챙겨줄 테니까. 늘 사랑해.<br>
+
+예랑 드림.
+</p>
+
+  </div>
+
+  <!-- 풍선들 (고정) -->
+  <div class="balloon" style="top:10%; left:5%; background: radial-gradient(circle, #ff9999, #ff6666);"></div>
+  <div class="balloon" style="top:20%; left:85%; background: radial-gradient(circle, #99ccff, #6699ff);"></div>
+  <div class="balloon" style="top:70%; left:15%; background: radial-gradient(circle, #99ffcc, #66cc99);"></div>
+  <div class="balloon" style="top:80%; left:80%; background: radial-gradient(circle, #ffcc99, #ff9966);"></div>
+  <div class="balloon" style="top:50%; left:50%; background: radial-gradient(circle, #ffccff, #cc66cc);"></div>
+
+  <!-- 모달 -->
+  <div class="modal" id="birthdayModal">
+    <div class="modal-content">
+      <h2>아빠 2025년 생일을 축하해요! 🎉</h2>
+      <button onclick="closeModal()">닫기</button>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      document.getElementById("birthdayModal").classList.add("active");
+    };
+    function closeModal() {
+      document.getElementById("birthdayModal").classList.remove("active");
+    }
+  </script>
+</body>
+</html>
